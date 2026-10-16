@@ -167,6 +167,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     overflow-wrap: normal;
 }
 #write pre.md-fences { overflow-x: auto; }
+/* Live fences contain CodeMirror and a language control below the panel.
+   Scrolling the outer pre clips the control and can scroll code out of view.
+   CodeMirror handles editor scrolling; static/exported fences keep the rule above. */
+#write pre.md-fences[mdtype="fences"] {
+    position: relative;
+    overflow: visible;
+    margin-bottom: 2.4em;
+}
 #write .md-fences code { padding: 0; color: inherit; background: transparent; border: 0; border-radius: 0; font-size: inherit; }
 .CodeMirror { color: var(--text-color); background: transparent; line-height: 1.65; }
 .CodeMirror-gutters { background: var(--code-bg-color); border-right: 1px solid var(--border-color); }
