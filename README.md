@@ -1,35 +1,74 @@
-# 纸间 · Folio
+# Folio · 纸间
 
-现代书刊风的 Typora 主题，提供两套配色：
+A modern editorial theme for Typora, with warm colors, serif body text, and a quiet reading rhythm.
 
-- **Folio / 纸间·昼**：暖白纸色，苔绿点缀。
-- **Folio Night / 纸间·夜**：暖炭底色，鼠尾草绿点缀。
+**English** · [简体中文](README.zh-CN.md)
 
-正文采用 STIX 英文字体与中文宋体，标题使用黑体；正文宽度随编辑区的 90% 自适应，窄窗口保留少量边距。
+## Preview
 
-## 项目结构
+### Folio — light
 
-- folio.css：亮色主题入口。
-- folio-night.css：暗色主题入口。
-- folio/folio-base.css：两套主题共用的排版样式。
-- folio/*.woff：随主题附带的 STIX Two Text 字体。
-- folio/STIX_2.0.0_license.pdf：字体许可说明。
-- folio/样张.md：在 Typora 中检查实际效果的样张。
-- folio/preview.html：可切换亮暗配色的浏览器样张。
-- folio/README.md：字体配置、样式微调与验证范围。
+Warm paper tones with moss-green accents.
 
-## 安装与使用
+![Folio light theme with bilingual text, headings, a quote, and lists](docs/images/folio.png)
 
-在 Typora 的「偏好设置 → 外观」中打开主题文件夹，将 folio.css、folio-night.css 和整个 folio 文件夹复制进去，保持它们之间的相对位置。
+### Folio Night — dark
 
-重启 Typora，在「主题」菜单中选择 Folio 或 Folio Night。
+Warm charcoal with sage-green accents.
 
-## 开发
+![Folio Night dark theme with bilingual text, headings, a quote, and lists](docs/images/folio-night.png)
 
-在项目中修改主题配色或公共排版后，将对应文件复制到 Typora 主题目录，再重新切换主题查看效果。
+These screenshots are rendered from the included [browser preview](folio/preview.html). The sidebar illustrates theme colors; actual Typora controls and rendering may differ. Open the preview locally to switch between both palettes.
 
-当前项目是正在使用的纸间主题的完整副本，包含收紧后的标题间距、90% 自适应正文宽度与块元素边缘对齐规则。
+## Features
 
-## 字体许可
+- Two palettes sharing the same typography and layout.
+- Bundled STIX Two Text for Latin text, with local Chinese serif font fallbacks.
+- Sans-serif headings, 17px body text, and 1.8 line spacing.
+- A reading area that uses 90% of the editor width and adapts to narrow windows.
+- Coordinated styles for tables, quotes, code, task lists, and footnotes.
+- A white background with dark text for printing and PDF export.
 
-STIX Two Text 的字体许可随字体一并保留，请参阅 folio/STIX_2.0.0_license.pdf。
+## Installation
+
+1. Download this repository using **Code → Download ZIP**, then extract it.
+2. In Typora, open **Preferences → Appearance → Open Theme Folder**.
+3. Copy `folio.css`, `folio-night.css`, and the entire `folio` folder into that theme folder. Keep their relative paths intact.
+4. Restart Typora and select **Folio** or **Folio Night** from the **Themes** menu.
+
+Your theme folder should contain:
+
+```text
+themes/
+├── folio.css
+├── folio-night.css
+└── folio/
+    ├── folio-base.css
+    ├── STIX2Text-Regular.woff
+    ├── STIX2Text-Italic.woff
+    ├── STIX2Text-Bold.woff
+    ├── STIX2Text-BoldItalic.woff
+    └── STIX_2.0.0_license.pdf
+```
+
+The `docs` folder and root README files are only needed for the repository documentation.
+
+## Fonts and customization
+
+STIX Two Text is included. Chinese body text prefers Source Han Serif / Noto Serif CJK SC / Noto Serif SC, falling back to Songti SC or SimSun. Headings use available system sans-serif fonts. Code uses Cascadia Code, JetBrains Mono, or Consolas when available. Fonts are loaded locally.
+
+Edit `folio.css` or `folio-night.css` to change colors. Shared typography and layout live in `folio/folio-base.css`:
+
+```css
+:root {
+    --folio-body-size: 17px;
+    --folio-line-height: 1.8;
+    --folio-reading-width: 90%;
+}
+```
+
+After editing, copy the changed files into Typora's theme folder and reselect the theme. See [theme notes](folio/README.md) for more details.
+
+## Font license
+
+The bundled STIX fonts retain their accompanying [license](folio/STIX_2.0.0_license.pdf).
