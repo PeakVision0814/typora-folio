@@ -10,15 +10,15 @@ A modern editorial theme for Typora, with warm colors, serif body text, and a qu
 
 Warm paper tones with moss-green accents.
 
-![Folio light theme with bilingual text, headings, a quote, and lists](docs/images/folio.png)
+![Folio light theme with bilingual text, headings, highlighting, and a quote](docs/images/folio.png)
 
 ### Folio Night — dark
 
 Warm charcoal with sage-green accents.
 
-![Folio Night dark theme with bilingual text, headings, a quote, and lists](docs/images/folio-night.png)
+![Folio Night dark theme with bilingual text, headings, highlighting, and a quote](docs/images/folio-night.png)
 
-These screenshots are rendered from the included [browser preview](folio/preview.html). The sidebar illustrates theme colors; actual Typora controls and rendering may differ. Open the preview locally to switch between both palettes.
+These screenshots are rendered from the included [browser preview](folio/preview.html). Actual Typora controls and rendering may differ. Open the preview locally to switch between both palettes.
 
 ## Features
 
@@ -28,6 +28,12 @@ These screenshots are rendered from the included [browser preview](folio/preview
 - A reading area that uses 90% of the editor width and adapts to narrow windows.
 - Coordinated styles for tables, quotes, code, task lists, and footnotes.
 - A white background with dark text for printing and PDF export.
+
+### Tables and code
+
+Table headings align with their columns by default, while explicit Markdown alignment is preserved. Code blocks use the theme's syntax colors.
+
+![Folio table with left-aligned headings and a Python code block with syntax highlighting](docs/images/folio-details.png)
 
 ## Installation
 

@@ -137,6 +137,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 #write table { width: 100%; margin: 1.5em 0; border-collapse: collapse; font-size: 0.94em; font-variant-numeric: tabular-nums; }
 #write th, #write td { padding: 0.65em 0.85em; border: 0; border-bottom: 1px solid var(--border-color); vertical-align: top; }
 #write th { color: var(--heading-color); background: var(--panel-bg-color); font-family: var(--folio-ui-font); font-weight: 600; }
+/* Keep Markdown's explicit alignment attributes and inline styles. */
+#write th:not([align]) { text-align: left; }
 #write tr:nth-child(even) td { background: var(--panel-bg-color); }
 #write table tr { color: var(--text-color); background: transparent; }
 

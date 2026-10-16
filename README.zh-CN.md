@@ -10,15 +10,15 @@
 
 暖白纸色，苔绿点缀。
 
-![Folio 亮色主题：中英文混排、标题、引用与列表](docs/images/folio.png)
+![Folio 亮色主题：中英文混排、标题、高亮与引用](docs/images/folio.png)
 
 ### Folio Night · 纸间·夜
 
 暖炭底色，鼠尾草绿点缀。
 
-![Folio Night 暗色主题：中英文混排、标题、引用与列表](docs/images/folio-night.png)
+![Folio Night 暗色主题：中英文混排、标题、高亮与引用](docs/images/folio-night.png)
 
-以上图片由仓库内的[浏览器预览页](folio/preview.html)渲染。侧栏用于展示主题配色，实际 Typora 控件与渲染效果可能有所不同。在本地打开预览页即可切换两套配色。
+以上图片由仓库内的[浏览器预览页](folio/preview.html)渲染，实际 Typora 控件与渲染效果可能有所不同。在本地打开预览页即可切换两套配色。
 
 ## 特点
 
@@ -28,6 +28,12 @@
 - 正文占编辑区宽度的 90%，窄窗口自动适配。
 - 表格、引用、代码、任务列表和脚注采用协调的样式。
 - 打印与 PDF 导出使用白底深色文字。
+
+### 表格与代码
+
+表头默认与所在列的正文左对齐，同时保留 Markdown 显式指定的对齐方式。代码块使用主题配套的语法配色。
+
+![Folio 表格与代码细节：左对齐表头和带语法高亮的 Python 代码块](docs/images/folio-details.png)
 
 ## 安装与使用
 
