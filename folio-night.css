@@ -1,0 +1,43 @@
+/* 纸间·夜 / Folio Night — modern editorial theme for Typora, v1.0 */
+@import url("./folio/folio-base.css");
+
+:root {
+    color-scheme: dark;
+    --bg-color: #202420;
+    --text-color: #d8ddd4;
+    --heading-color: #eef0e8;
+    --muted-text-color: #a3ad9e;
+    --primary-color: #a4b99b;
+    --link-color: #afc7a4;
+    --link-hover-color: #d0e2c7;
+    --panel-bg-color: #292f28;
+    --code-bg-color: #272d26;
+    --quote-bg-color: #293128;
+    --quote-text-color: #bfccb6;
+    --border-color: #414c3e;
+    --mark-bg-color: #514d2c;
+    --mark-text-color: #f2e5ab;
+    --select-text-bg-color: #455640;
+    --select-text-color: #f2f5eb;
+    --search-select-bg-color: #665c32;
+    --search-select-text-color: #fff0b8;
+    --side-bar-bg-color: #1c201c;
+    --active-file-bg-color: #333e2f;
+    --active-file-text-color: #c5d8b9;
+    --active-file-border-color: #a4b99b;
+    --item-hover-bg-color: #2a3228;
+    --item-hover-text-color: #e3e8de;
+    --control-text-color: #a3ad9e;
+    --control-text-hover-color: #eef0e8;
+    --window-border: 1px solid #414c3e;
+    --rawblock-edit-panel-bd: #272d26;
+    --rawblock-edit-panel-bg-color: #272d26;
+    --mermaid-theme: night;
+    --monospace: "Cascadia Code", "JetBrains Mono", Consolas, "Microsoft YaHei", monospace;
+    --syntax-keyword: #c4afd0;
+    --syntax-number: #d7ba8d;
+    --syntax-string: #b4c99f;
+    --syntax-function: #a5c7ca;
+    --syntax-comment: #a3ad9e;
+    --syntax-error: #eba9a0;
+}

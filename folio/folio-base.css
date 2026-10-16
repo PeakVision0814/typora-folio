@@ -1,0 +1,294 @@
+/* Shared layout for Folio and Folio Night. Keep beside the bundled fonts. */
+@font-face {
+    font-family: "Folio STIX";
+    src: url("./STIX2Text-Regular.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Folio STIX";
+    src: url("./STIX2Text-Italic.woff") format("woff");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Folio STIX";
+    src: url("./STIX2Text-Bold.woff") format("woff");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Folio STIX";
+    src: url("./STIX2Text-BoldItalic.woff") format("woff");
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+}
+
+:root {
+    --folio-body-font: "Folio STIX", "Source Han Serif SC", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", SimSun, serif;
+    --folio-ui-font: "Inter", "Segoe UI", "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+    --folio-reading-width: 90%; /* Fluid text width relative to the editor area */
+    --folio-body-size: 17px;
+    --folio-line-height: 1.8;
+}
+
+html { font-size: var(--folio-body-size); }
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+    font-family: var(--folio-ui-font);
+    line-height: 1.6;
+}
+
+#write {
+    box-sizing: border-box;
+    width: var(--folio-reading-width);
+    max-width: none;
+    margin: 0 auto;
+    padding: 16px 0 64px;
+    color: var(--text-color);
+    font-family: var(--folio-body-font);
+    font-size: 1rem;
+    line-height: var(--folio-line-height);
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Give top-level blocks the full reading-column width, even when the editor
+   supplies inherited widths. Border-box keeps quote/code padding inside it. */
+#write > h1, #write > h2, #write > h3,
+#write > h4, #write > h5, #write > h6,
+#write > blockquote, #write > hr,
+#write > .md-fences, #write > .md-rawblock,
+#write > .md-math-block, #write > .md-toc,
+#write > table, #write > .md-table {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#write p { margin: 0.85em 0; text-align: left; }
+#write > :first-child { margin-top: 0; }
+#write h1, #write h2, #write h3,
+#write h4, #write h5, #write h6 {
+    color: var(--heading-color);
+    font-family: var(--folio-ui-font);
+    font-weight: 600;
+    line-height: 1.45;
+    text-align: left;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+#write h1 { margin: 0 0 0.75em; font-size: 2.15em; line-height: 1.35; letter-spacing: 0.015em; }
+#write h2 { margin: 0.65em 0 0.65em; padding-bottom: 0.35em; border-bottom: 1px solid var(--border-color); font-size: 1.5em; }
+#write h3 { margin: 0.65em 0 0.55em; font-size: 1.22em; }
+#write h4 { margin: 0.65em 0 0.6em; font-size: 1.08em; }
+#write h5 { margin: 0.65em 0 0.6em; font-size: 1em; }
+#write h6 { margin: 0.65em 0 0.6em; color: var(--muted-text-color); font-size: 0.94em; }
+#write h1 + h2, #write h2 + h3, #write h3 + h4,
+#write h4 + h5, #write h5 + h6 { margin-top: 0.55em; }
+#write strong { color: var(--heading-color); font-weight: 700; }
+#write a, #write a:visited { color: var(--link-color); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+#write a:hover { color: var(--link-hover-color); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+#write mark { padding: 0.08em 0.18em; color: var(--mark-text-color); background: var(--mark-bg-color); border-radius: 2px; }
+#write del { color: var(--muted-text-color); }
+#write hr { height: 0; margin: 2.5em 0; border: 0; border-top: 1px solid var(--border-color); }
+
+/* Quiet block treatments stay inside the reading column. */
+#write blockquote {
+    margin: 1.4em 0;
+    padding: 0.6em 1.15em;
+    color: var(--quote-text-color);
+    background: var(--quote-bg-color);
+    border: 0;
+    border-left: 3px solid var(--primary-color);
+    border-radius: 0 4px 4px 0;
+    font-style: normal;
+}
+#write blockquote > :first-child { margin-top: 0.25em; }
+#write blockquote > :last-child { margin-bottom: 0.25em; }
+#write ul, #write ol { margin: 0.8em 0; padding-left: 1.65em; }
+#write li { margin: 0.28em 0; }
+#write li > p { margin: 0.4em 0; }
+#write li > ul, #write li > ol { margin: 0.3em 0; }
+#write li::marker { color: var(--primary-color); }
+#write .md-task-list-item { position: relative; list-style: none; }
+#write .md-task-list-item > input {
+    position: absolute;
+    top: 0.5em;
+    left: -1.5em;
+    margin: 0;
+    width: 1em;
+    height: 1em;
+    accent-color: var(--primary-color);
+}
+#write .md-task-list-item.task-list-done > p { color: var(--muted-text-color); }
+
+#write table { width: 100%; margin: 1.5em 0; border-collapse: collapse; font-size: 0.94em; font-variant-numeric: tabular-nums; }
+#write th, #write td { padding: 0.65em 0.85em; border: 0; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+#write th { color: var(--heading-color); background: var(--panel-bg-color); font-family: var(--folio-ui-font); font-weight: 600; }
+#write tr:nth-child(even) td { background: var(--panel-bg-color); }
+#write table tr { color: var(--text-color); background: transparent; }
+
+#write code, #write kbd, #write pre, .CodeMirror {
+    font-family: var(--monospace);
+}
+#write code {
+    padding: 0.14em 0.35em;
+    color: var(--primary-color);
+    background: var(--code-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.86em;
+}
+#write kbd { padding: 0.1em 0.4em; background: var(--panel-bg-color); border: 1px solid var(--border-color); border-bottom-width: 2px; border-radius: 4px; font-size: 0.82em; }
+#write .md-fences, #write pre.md-meta-block {
+    box-sizing: border-box;
+    margin: 1.4em 0;
+    padding: 18px 20px;
+    color: var(--text-color);
+    background: var(--code-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.85em;
+    line-height: 1.65;
+    overflow-wrap: normal;
+}
+#write pre.md-fences { overflow-x: auto; }
+#write .md-fences code { padding: 0; color: inherit; background: transparent; border: 0; border-radius: 0; font-size: inherit; }
+.CodeMirror { color: var(--text-color); background: transparent; line-height: 1.65; }
+.CodeMirror-gutters { background: var(--code-bg-color); border-right: 1px solid var(--border-color); }
+.CodeMirror-linenumber { min-width: 2em; color: var(--muted-text-color); }
+.CodeMirror div.CodeMirror-cursor { border-left-color: var(--text-color); }
+.CodeMirror-activeline-background { background: var(--panel-bg-color); }
+.code-tooltip, .md-rawblock-control, .md-rawblock-tooltip { color: var(--muted-text-color); background: var(--panel-bg-color); }
+.md-rawblock-before, .md-rawblock-after { color: var(--muted-text-color); }
+#write .md-header { font-size: inherit; }
+#write .md-meta, #write .md-comment, .md-def-name::before, .md-def-name::after { color: var(--muted-text-color); }
+
+/* Both the code editor and Markdown source view use the same paired palette. */
+.cm-s-inner, .cm-s-typora-default { color: var(--text-color); }
+.cm-s-inner .cm-keyword, .cm-s-inner .cm-builtin,
+.cm-s-typora-default .cm-keyword, .cm-s-typora-default .cm-builtin { color: var(--syntax-keyword); }
+.cm-s-inner .cm-number, .cm-s-inner .cm-atom,
+.cm-s-typora-default .cm-number, .cm-s-typora-default .cm-atom { color: var(--syntax-number); }
+.cm-s-inner .cm-string, .cm-s-inner .cm-string-2,
+.cm-s-typora-default .cm-string, .cm-s-typora-default .cm-string-2 { color: var(--syntax-string); }
+.cm-s-inner .cm-def, .cm-s-inner .cm-variable-2, .cm-s-inner .cm-attribute,
+.cm-s-typora-default .cm-def, .cm-s-typora-default .cm-variable-2, .cm-s-typora-default .cm-attribute { color: var(--syntax-function); }
+.cm-s-inner .cm-variable, .cm-s-inner .cm-property, .cm-s-inner .cm-operator,
+.cm-s-typora-default .cm-variable, .cm-s-typora-default .cm-property, .cm-s-typora-default .cm-operator { color: var(--text-color); }
+.cm-s-inner .cm-tag, .cm-s-inner .cm-variable-3,
+.cm-s-typora-default .cm-tag, .cm-s-typora-default .cm-variable-3 { color: var(--primary-color); }
+.cm-s-inner .cm-comment, .cm-s-inner .cm-meta, .cm-s-inner .cm-qualifier,
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-meta, .cm-s-typora-default .cm-qualifier { color: var(--syntax-comment); }
+.cm-s-inner .cm-header, .cm-s-inner .cm-hr, .cm-s-typora-default .cm-header { color: var(--heading-color); }
+.cm-s-inner .cm-link, .cm-s-typora-default .cm-link, .cm-s-typora-default .cm-code { color: var(--link-color); }
+.cm-s-inner .cm-quote, .cm-s-typora-default .cm-quote { color: var(--quote-text-color); }
+.cm-s-inner .cm-positive, .cm-s-typora-default .cm-positive { color: var(--syntax-string); }
+.cm-s-inner .cm-negative, .cm-s-inner .cm-error,
+.cm-s-typora-default .cm-negative, .cm-s-typora-default .cm-error { color: var(--syntax-error); background: transparent; }
+.cm-s-inner .cm-em, .cm-s-typora-default .cm-em { font-style: italic; }
+.cm-s-inner .cm-strong, .cm-s-typora-default .cm-strong { font-weight: bold; }
+#typora-source { color: var(--text-color); background: var(--bg-color); }
+#typora-source .CodeMirror { font-family: var(--monospace); font-size: 0.9rem; background: var(--bg-color); }
+#typora-source .CodeMirror-lines { max-width: 980px; margin: 0 auto; }
+
+::selection, *.in-text-selection { color: var(--select-text-color); background: var(--select-text-bg-color); text-shadow: none; }
+.CodeMirror-selected, .CodeMirror-selectedtext { background: var(--select-text-bg-color) !important; }
+.CodeMirror-selectedtext { color: var(--select-text-color) !important; }
+.md-search-hit { color: var(--search-select-text-color); background: var(--search-select-bg-color); }
+
+/* Math keeps Typora/MathJax's own font metrics. */
+#write .md-math-block { margin: 1.5em 0; padding: 0.35em 0; overflow-x: auto; }
+#write .md-math-block, #write .md-inline-math, #write .md-inline-math svg { color: var(--text-color); }
+#write img { max-width: 100%; height: auto; }
+#write .md-image > .md-meta { color: var(--muted-text-color); }
+#write .md-toc { margin: 1.5em 0 2em; padding: 1em 1.2em; background: var(--panel-bg-color); border-radius: 4px; font-family: var(--folio-ui-font); font-size: 0.88em; }
+#write a.md-toc-inner { color: var(--text-color); text-decoration: none; }
+#write a.md-toc-inner:hover { color: var(--link-color); text-decoration: underline; }
+#write .footnotes-area { margin-top: 3em; padding-top: 0.75em; color: var(--muted-text-color); border-top: 1px solid var(--border-color); font-size: 0.85em; }
+#write sup.md-footnote { padding: 0 0.15em; color: var(--link-color); background: transparent; }
+
+/* Native Typora chrome: let the app retain its layouts and click targets. */
+#typora-sidebar { color: var(--control-text-color); background: var(--side-bar-bg-color); font-family: var(--folio-ui-font); font-size: 13px; border-right: 1px solid var(--border-color); }
+.sidebar-tabs { color: var(--control-text-color); border-bottom: 1px solid var(--border-color); }
+.active-tab-files #info-panel-tab-file,
+.active-tab-outline #info-panel-tab-outline { color: var(--primary-color); }
+.file-list-item { padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border-color); }
+.file-list-item-file-name { color: var(--text-color); font-weight: 500; }
+.file-list-item-summary, .file-list-item-time { color: var(--muted-text-color); }
+.file-list-item.active { color: var(--active-file-text-color); background: var(--active-file-bg-color); border-left-color: var(--active-file-border-color); }
+.file-node-content:hover, .file-list-item:hover, .outline-item:hover { color: var(--item-hover-text-color); background: var(--item-hover-bg-color); }
+.file-node-content.active, .outline-item.active, .outline-active > .outline-item { color: var(--active-file-text-color); background: var(--active-file-bg-color); border-radius: 4px; }
+.outline-label { padding-top: 3px; padding-bottom: 3px; }
+.outline-expander, .file-node-icon { color: var(--muted-text-color); }
+header, footer { color: var(--control-text-color); background: var(--bg-color); }
+.dropdown-menu, .context-menu, .modal-content, .megamenu-content, #md-searchpanel {
+    color: var(--text-color); background: var(--panel-bg-color); border-color: var(--border-color);
+}
+.dropdown-menu > li > a { color: var(--text-color); }
+.dropdown-menu > li > a:hover, .dropdown-menu > .active > a { color: var(--active-file-text-color); background: var(--active-file-bg-color); }
+.dropdown-menu .divider, .modal-header, .modal-footer { border-color: var(--border-color); }
+.dropdown-menu .divider { background: var(--border-color); }
+#md-searchpanel input, .modal-content input, .modal-content select { color: var(--text-color); background: var(--bg-color); border-color: var(--border-color); }
+.btn-default { color: var(--text-color); background: var(--panel-bg-color); border-color: var(--border-color); }
+.btn-default:hover { color: var(--heading-color); background: var(--item-hover-bg-color); }
+.btn-primary { color: var(--bg-color); background: var(--primary-color); border-color: var(--primary-color); }
+
+@media (max-width: 700px) {
+    #write { width: 100%; padding: 16px 20px 48px; }
+    #write h1 { font-size: 1.85em; }
+    #write h2 { font-size: 1.35em; }
+    #write .md-fences { padding: 14px; }
+    #write th, #write td { padding: 0.5em 0.6em; }
+}
+@media (max-width: 420px) {
+    #write { padding-left: 18px; padding-right: 18px; }
+}
+
+/* PDF/print uses paper colors regardless of the editing theme. */
+@media print {
+    html:root {
+        color-scheme: light;
+        --bg-color: #ffffff;
+        --text-color: #30332f;
+        --heading-color: #252c26;
+        --muted-text-color: #5b6358;
+        --primary-color: #486452;
+        --link-color: #486452;
+        --panel-bg-color: #f0f1ec;
+        --code-bg-color: #f0f1ec;
+        --quote-bg-color: #f0f3ec;
+        --quote-text-color: #4c5c4b;
+        --border-color: #cbd0c4;
+        --mark-bg-color: #e8dfaf;
+        --mark-text-color: #464022;
+        --syntax-keyword: #735379;
+        --syntax-number: #8a542e;
+        --syntax-string: #476546;
+        --syntax-function: #3c6575;
+        --syntax-comment: #687063;
+        --syntax-error: #a33e3e;
+    }
+    html { font-size: 11pt; }
+    body, #write { color: var(--text-color); background: white; }
+    #write { width: 100%; max-width: none; padding: 0; }
+    #write h1 { font-size: 2em; }
+    #write blockquote, #write tr, #write img { break-inside: avoid; }
+    #write p { orphans: 3; widows: 3; }
+    #write thead { display: table-header-group; }
+    #write pre.md-fences { white-space: pre-wrap; overflow-wrap: anywhere; }
+    #write a { text-decoration: underline; }
+    #typora-sidebar, header, footer { display: none; }
+}
