@@ -60,6 +60,7 @@ body {
 
 /* Give top-level blocks the full reading-column width, even when the editor
    supplies inherited widths. Border-box keeps quote/code padding inside it. */
+#write > p,
 #write > h1, #write > h2, #write > h3,
 #write > h4, #write > h5, #write > h6,
 #write > blockquote, #write > hr,
